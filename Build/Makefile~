@@ -1,0 +1,17 @@
+CC=g++
+MInclude=../Modeling/inc
+EXE=ModelingExe
+
+CFLAGS=-I$(MInclude)
+obj=../API
+
+$(obj)/%.o: $(obj)/%.cpp
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(EXE): $(obj)/*.o
+	$(CC) $< -o $(EXE)
+
+
+
+clean:
+	rm $(obj)/*.o *.so $(EXE)
